@@ -25,6 +25,7 @@ const getMoviesByType = (type) => {
         return axios.get(baseUrl + '/Top250Movies/k_xmndj5an');
     } 
     else if (type === 'theater') {
+        return axios.get(backendUrl + '/InTheaters');
         return axios.get(baseUrl + '/InTheaters/k_xmndj5an');
     } 
     else if (type === 'mostpopular') {
