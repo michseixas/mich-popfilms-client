@@ -20,12 +20,13 @@ function MoviesListPage() {
     getMoviesByType(listId) // from imdb.service
       .then((resp) => {
         console.log("response from service", resp)
-        if(resp.data.items) {
-          setMovies(resp.data.items);
-          console.log(resp.data.items);
+        if(resp.data) {
+          setMovies(resp.data);
+          console.log(resp.data);
           //setFilteredMovies brings all the movies to the array filteredMovies that is later used to filter the movies
           //this helps to show all the movies when there are no filters applied.
-          setFilteredMovies(resp.data.items);  
+          console.log(" que hay en response.data : ", resp)
+          setFilteredMovies(resp.data.top250);  
           setLoading(false);
         } else if(resp.data.results) {
           setMovies(resp.data.results);

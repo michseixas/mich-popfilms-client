@@ -1,6 +1,6 @@
 import axios from 'axios';
 let baseUrl = 'https://imdb-api.com/en/API';
-
+let backendUrl = import.meta.env.VITE_API_URL + "/localimdb";
 
 
 const getMovieDetails = (movieId) => {
@@ -21,6 +21,7 @@ const getLikedMovies = (arrayMovieId) => {
 
 const getMoviesByType = (type) => {
     if (type === 'top250') {
+        return axios.get(backendUrl + '/Top250Movies');
         return axios.get(baseUrl + '/Top250Movies/k_xmndj5an');
     } 
     else if (type === 'theater') {
