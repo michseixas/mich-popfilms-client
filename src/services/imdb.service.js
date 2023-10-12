@@ -33,6 +33,7 @@ const getMoviesByType = (type) => {
         return axios.get(baseUrl + '/MostPopularMovies/k_xmndj5an');
     } 
     else if (type === 'comingsoon') {
+        return axios.get(backendUrl + '/ComingSoon');
         return axios.get(baseUrl + '/ComingSoon/k_xmndj5an') 
     }
     else if (type === 'drama') {
