@@ -26,16 +26,17 @@ function MoviesListPage() {
           //setFilteredMovies brings all the movies to the array filteredMovies that is later used to filter the movies
           //this helps to show all the movies when there are no filters applied.
           console.log(" que hay en response.data : ", resp)
-          setFilteredMovies(resp.data.top250);  
+          setFilteredMovies(resp.data.items);  
           setLoading(false);
-        } else if(resp.data.results) {
-          setMovies(resp.data.results);
-          console.log(resp.data.results);
-          //setFilteredMovies brings all the movies to the array filteredMovies that is later used to filter the movies
-          //this helps to show all the movies when there are no filters applied.
-          setFilteredMovies(resp.data.results);  
-          setLoading(false);
-        }
+        } 
+        // else if(resp.data.results) {
+        //   setMovies(resp.data.results);
+        //   console.log(resp.data.results);
+        //   //setFilteredMovies brings all the movies to the array filteredMovies that is later used to filter the movies
+        //   //this helps to show all the movies when there are no filters applied.
+        //   setFilteredMovies(resp.data.results);  
+        //   setLoading(false);
+        // }
        
       })
       .catch((err) => console.log(err));
