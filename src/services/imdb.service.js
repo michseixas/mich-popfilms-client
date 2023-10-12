@@ -28,6 +28,7 @@ const getMoviesByType = (type) => {
         return axios.get(baseUrl + '/InTheaters/k_xmndj5an');
     } 
     else if (type === 'mostpopular') {
+        return axios.get(backendUrl + '/MostPopularMovies');
         return axios.get(baseUrl + '/MostPopularMovies/k_xmndj5an');
     } 
     else if (type === 'comingsoon') {
