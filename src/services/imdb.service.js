@@ -22,19 +22,15 @@ const getLikedMovies = (arrayMovieId) => {
 const getMoviesByType = (type) => {
     if (type === 'top250') {
         return axios.get(backendUrl + '/Top250Movies');
-        return axios.get(baseUrl + '/Top250Movies/k_xmndj5an');
     } 
     else if (type === 'theater') {
         return axios.get(backendUrl + '/InTheaters');
-        return axios.get(baseUrl + '/InTheaters/k_xmndj5an');
     } 
     else if (type === 'mostpopular') {
         return axios.get(backendUrl + '/MostPopularMovies');
-        return axios.get(baseUrl + '/MostPopularMovies/k_xmndj5an');
     } 
     else if (type === 'comingsoon') {
         return axios.get(backendUrl + '/ComingSoon');
-        return axios.get(baseUrl + '/ComingSoon/k_xmndj5an') 
     }
     else if (type === 'drama') {
         return axios.get('https://imdb-api.com/API/AdvancedSearch/k_xmndj5an/?title_type=feature&genres=drama') 
