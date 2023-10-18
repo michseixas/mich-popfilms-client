@@ -5,7 +5,8 @@ let backendUrl = import.meta.env.VITE_API_URL + "/localimdb";
 
 const getMovieDetails = (movieId) => {
    
-    return axios.get(`https://imdb-api.com/en/API/Title/k_xmndj5an/${movieId}`)};
+    return axios.get(backendUrl + `/moviedetails/${movieId}`)};
+    // return axios.get(`https://imdb-api.com/en/API/Title/k_xmndj5an/${movieId}`)};
 
     
 

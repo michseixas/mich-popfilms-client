@@ -36,8 +36,8 @@ function MovieDetailsPage() {
   useEffect(() => {
     getMovieDetails(movieId)
       .then((resp) => {
-        console.log("results: ", resp.data);
-        setMovie(resp.data);
+        console.log("results from localIMDB getmoviedetails: ", resp.data);
+        setMovie(resp.data.moviedetails);
         setLoading(false);
       })
       .catch((err) => console.log(err));
