@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { likeMovie, dislikeMovie } from "../services/user.service";
 import { useParams, Link } from "react-router-dom";
-import { getMovieDetails } from "../services/imdb.service";
+import { getMovieDetails } from "../services/tmdb.service";
 import CreateComment from "../components/CreateComment";
 import MovieDetailInfo from "../components/MovieDetailInfo";
 import { authContext } from "../contexts/auth.context";
@@ -36,8 +36,8 @@ function MovieDetailsPage() {
   useEffect(() => {
     getMovieDetails(movieId)
       .then((resp) => {
-        console.log("results from localIMDB getmoviedetails: ", resp.data);
-        setMovie(resp.data.moviedetails);
+        console.log("results from localTMDB: ", resp.data);
+        setMovie(resp.data);
         setLoading(false);
       })
       .catch((err) => console.log(err));
