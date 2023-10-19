@@ -1,4 +1,4 @@
-import { getMoviesByType } from "../services/imdb.service";
+import { getMoviesByType } from "../services/tmdb.service";
 import { Navigate, useParams, Link } from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react";
 import { filterContext } from "../contexts/filter.context";
@@ -21,12 +21,12 @@ function MoviesListPage() {
       .then((resp) => {
         console.log("response from service", resp)
         if(resp.data) {
-          setMovies(resp.data);
-          console.log(resp.data);
+          setMovies(resp.data.results);
+          console.log("Movies: " ,movies);
           //setFilteredMovies brings all the movies to the array filteredMovies that is later used to filter the movies
           //this helps to show all the movies when there are no filters applied.
           console.log(" que hay en response.data : ", resp)
-          setFilteredMovies(resp.data.items);  
+          setFilteredMovies(resp.data.results);  
           setLoading(false);
         } 
         // else if(resp.data.results) {
@@ -70,7 +70,7 @@ function MoviesListPage() {
   else if (listId === "action") title = "Action";
   else if (listId === "romance") title = "Romance";
   else if (listId === "animation") title = "Animation";
-  else if (listId === "biography") title = "Biography";
+  else if (listId === "documentary") title = "Documentary";
   else if (listId === "adventure") title = "Adventure";
   else if (listId === "family") title = "Family";
 
@@ -97,7 +97,7 @@ function MoviesListPage() {
                   <p className="card-text">{movie.genres}</p>
                   <div className="imageDisplayed responsive-image">
                   <Link to={`/movies/${movie.id}`}>
-                    <img src={movie.image} loading="lazy" alt={movie.title} />
+                    <img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}` } loading="lazy" alt={movie.title} />
                     </Link>
                   </div>
                 </div>

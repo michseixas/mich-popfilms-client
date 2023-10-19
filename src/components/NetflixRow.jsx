@@ -1,6 +1,6 @@
 import React, { Component , useEffect, useState } from "react";
 import Slider from "react-slick";
-import { getMoviesByType } from "../services/imdb.service";
+import { getMoviesByType } from "../services/tmdb.service";
 import { Navigate, useParams, Link } from "react-router-dom";
 
 function NetflixRow(props) {
@@ -44,7 +44,7 @@ function NetflixRow(props) {
                 <div className="card-body">
                   <div className="imageDisplayed responsive-image">
                   <Link to={`/movies/${movie.id}`}>
-                    <img src={movie.image} loading="lazy" alt={movie.title} />
+                    <img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}` } loading="lazy" alt={movie.title} />
                     </Link>
                   </div>
                 </div>

@@ -71,8 +71,8 @@ function MenuTop() {
               </Link>
             </li>
             <li>
-            <Link className="menu-top-link" onClick={handleClose} to="/lists/biography">
-                Biography
+            <Link className="menu-top-link" onClick={handleClose} to="/lists/documentary">
+                Documentary
               </Link>
             </li>
             <li>
