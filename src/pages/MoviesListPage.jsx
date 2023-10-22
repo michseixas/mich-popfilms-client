@@ -17,7 +17,7 @@ function MoviesListPage() {
   }, [text]);
 
   useEffect(() => {
-    getMoviesByType(listId) // from imdb.service
+    getMoviesByType(listId) // from tmdb.service
       .then((resp) => {
         console.log("response from service", resp)
         if(resp.data) {
@@ -61,7 +61,7 @@ function MoviesListPage() {
   }, [filteredMovies]);
 
   let title = "";
-  if (listId === "top250") title = "Top 250 Movies of all times";
+  if (listId === "topmovies") title = "Top Movies of All Times";
   else if (listId === "mostpopular") title = "Most Popular Movies";
   else if (listId === "theater") title = "New Movies in Theaters Now";
   else if (listId === "comingsoon") title = "Coming soon";

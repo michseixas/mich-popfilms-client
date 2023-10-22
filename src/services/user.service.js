@@ -2,8 +2,6 @@ import axios from 'axios';
 
 
 let baseUrl = import.meta.env.VITE_API_URL + "/user";
-// let baseUrl2 = 'https://imdb-api.com/en/API';
-
 
 //this function will be called on the front end on the page that we need. In this case, the user profile
 

@@ -1,5 +1,5 @@
-import Carousel from 'react-bootstrap/Carousel';
-import { Link } from 'react-router-dom';
+import Carousel from "react-bootstrap/Carousel";
+import { Link } from "react-router-dom";
 
 function CarouselCard() {
   return (
@@ -7,7 +7,7 @@ function CarouselCard() {
       <div className="carousel-wrapper">
         <Carousel>
           <Carousel.Item>
-            <Link to="/">
+            <Link to="/lists/topmovies">
               <img
                 className="d-block w-100 carousel-image"
                 src="/images/shawshank-redemption.webp"
@@ -15,12 +15,12 @@ function CarouselCard() {
               />
             </Link>
             <Carousel.Caption>
-              <h3>Top 250 Movies</h3>
+              <h3>Top Movies of All Times</h3>
               <p>Unforgettable stories on the silver screen.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/mostpopular">
+            <Link to="/lists/mostpopular">
               <img
                 className="d-block w-100 carousel-image"
                 src="/images/pulp-fiction.jpeg"
@@ -33,7 +33,7 @@ function CarouselCard() {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/theater">
+            <Link to="lists/theater">
               <img
                 className="d-block w-100 carousel-image"
                 src="/images/thelittlemermaid1.jpg"
@@ -46,7 +46,7 @@ function CarouselCard() {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/comingsoon">
+            <Link to="lists/comingsoon">
               <img
                 className="d-block w-100 carousel-image"
                 src="/images/theflash.jpg"

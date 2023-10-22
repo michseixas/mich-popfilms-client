@@ -16,7 +16,7 @@ function NetflixRow(props) {
 
 
       useEffect(() => {
-        getMoviesByType(listId) // from imdb.service
+        getMoviesByType(listId) // from tmdb.service
           .then((resp) => {
             console.log("response from service", resp)
             if(resp.data.items) {

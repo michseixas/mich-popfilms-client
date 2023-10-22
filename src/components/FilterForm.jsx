@@ -11,7 +11,7 @@ function FilterForm() {
   const location = useLocation();
   const route = location.pathname;
 
-  if (route === "/top250" ||route === "/mostpopular" ||route === "/theater" ||route === "/comingsoon") {
+  if (route === "/lists/topmovies" ||route === "/lists/mostpopular" ||route === "/lists/theater" ||route === "/lists/comingsoon") {
     return (
       <div>
         <input

@@ -12,9 +12,9 @@ function MenuTop() {
           <h2>Movies</h2>
           <ul>
             <li>
-              <Link className="menu-top-link" onClick={handleClose} to="/lists/top250">
+              <Link className="menu-top-link" onClick={handleClose} to="/lists/topmovies">
                 {" "}
-                Top 250 Movies
+                Top Movies of All Times
               </Link>
             </li>
             <li>

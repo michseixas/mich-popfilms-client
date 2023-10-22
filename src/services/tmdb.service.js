@@ -27,7 +27,7 @@ const getLikedMovies = (arrayMovieId) => {
   
 
 const getMoviesByType = (type) => {
-    if (type === 'top250') {
+    if (type === 'topmovies') {
         return axios.get(baseUrl + `/3/movie/top_rated?api_key=${tmdb_key}`);
     } 
     else if (type === 'theater') {
