@@ -4,7 +4,7 @@ import { getUserInfo } from "../services/user.service";
 import { deleteUser } from "../services/user.service";
 import EditUserInfo from "../components/EditUserInfoModal";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { getLikedMovies } from "../services/imdb.service";
+import { getLikedMovies } from "../services/tmdb.service";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -139,7 +139,7 @@ function UserProfilePage() {
                 <div className="imageDisplayed responsive-image">
                   <Link to={`/movies/${movie.id}`}>
                     <img
-                      src={movie.image}
+                      src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}` }
                       alt={movie.title}
                       className="img-fluid"
                     />

@@ -256,7 +256,7 @@ function MovieDetailsPage() {
           </Col>
           <Col lg={4}>
             <div>
-              <h1>{movie.original_title}</h1>
+              <h1>{movie.title}</h1>
             </div>
             <hr></hr>
             <div>
