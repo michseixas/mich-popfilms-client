@@ -10,7 +10,7 @@ function CarouselCard() {
             <Link to="/lists/topmovies">
               <img
                 className="d-block w-100 carousel-image"
-                src="/images/shawshank-redemption.webp"
+                src="/images/shawshank-redemption-prison-break-2.webp"
                 alt="First slide"
               />
             </Link>
@@ -23,7 +23,7 @@ function CarouselCard() {
             <Link to="/lists/mostpopular">
               <img
                 className="d-block w-100 carousel-image"
-                src="/images/pulp-fiction.jpeg"
+                src="/images/mission-impossible.jpeg"
                 alt="Second slide"
               />
             </Link>
@@ -36,7 +36,7 @@ function CarouselCard() {
             <Link to="lists/theater">
               <img
                 className="d-block w-100 carousel-image"
-                src="/images/thelittlemermaid1.jpg"
+                src="/images/killers-flower-moon.webp"
                 alt="Third slide"
               />
             </Link>
@@ -49,7 +49,7 @@ function CarouselCard() {
             <Link to="lists/comingsoon">
               <img
                 className="d-block w-100 carousel-image"
-                src="/images/theflash.jpg"
+                src="/images/radical-the-movie.webp"
                 alt="First slide"
               />
             </Link>
