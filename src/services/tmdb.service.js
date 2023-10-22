@@ -4,9 +4,15 @@ let tmdb_key = import.meta.env.VITE_TMDB_KEY ;
 
 
 const getMovieDetails = (movieId) => {
-   
-    return axios.get(baseUrl + `3/movie/${movieId}?api_key=${tmdb_key}`)};
-    // return axios.get(`https://imdb-api.com/en/API/Title/k_xmndj5an/${movieId}`)};
+    //query for getting movie details, except crew and director.
+    return axios.get(baseUrl + `3/movie/${movieId}?api_key=${tmdb_key}`)
+};
+
+const getDirectorActors = (movieId) => {
+    //query for getting actors and director.
+    return axios.get(baseUrl + `3/movie/${movieId}/credits?api_key=${tmdb_key}`)
+};
+
 
     
 
@@ -62,4 +68,4 @@ const getMoviesByType = (type) => {
 };
 
 
-export {getMoviesByType, getMovieDetails, getLikedMovies};    
+export {getMoviesByType, getMovieDetails, getLikedMovies, getDirectorActors};    

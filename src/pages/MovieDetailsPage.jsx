@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { likeMovie, dislikeMovie } from "../services/user.service";
 import { useParams, Link } from "react-router-dom";
 import { getMovieDetails } from "../services/tmdb.service";
+import { getDirectorActors } from "../services/tmdb.service";
 import CreateComment from "../components/CreateComment";
 import MovieDetailInfo from "../components/MovieDetailInfo";
 import { authContext } from "../contexts/auth.context";
@@ -16,11 +17,14 @@ import Stars from "../components/Stars";
 
 let baseUrl = import.meta.env.VITE_API_URL + "/movie";
 
+
+
 function MovieDetailsPage() {
   //state variables section: store and update the data of the component
   const { isLoggedIn, user, isPremium } = useContext(authContext);
   let { movieId } = useParams();
   const [movie, setMovie] = useState({});
+  const [crew, setCrew] = useState({});
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
   const [count, setCount] = useState(0);
@@ -36,11 +40,45 @@ function MovieDetailsPage() {
   useEffect(() => {
     getMovieDetails(movieId)
       .then((resp) => {
-        console.log("results from localTMDB: ", resp.data);
+        console.log("Movie Details from TMDB", resp.data);
         setMovie(resp.data);
         setLoading(false);
       })
       .catch((err) => console.log(err));
+
+    getDirectorActors(movieId)
+      .then((resp) => {
+        console.log("Director and Actors from TMDB ", resp.data);
+        //here I define exactly what I want crew to be:
+        let temporalCrew = {
+          director: '',
+          actors: ''
+        }
+        const director = resp.data.crew.find(
+          (crewMember) => crewMember.department === 'Directing' && crewMember.job === 'Director'
+        );
+        
+        if (director) {
+          console.log("Director: " + director.name);
+          temporalCrew.director = director.name
+        } else {
+          console.log("Director information not available.");
+        }
+
+        //lets obtain the first 4 actors in the array using a For
+        const actors = [];
+      
+        for ( let i = 0; i < 3; i++){
+          actors.push(resp.data.cast[i].name)
+          console.log("What does resp.data.cast bring?--->", resp.data.cast[i].name )
+        } 
+        console.log(actors.join(", "))
+        temporalCrew.actors = actors.join(", ");
+
+        setCrew(temporalCrew);
+        setLoading(false);
+      })
+      .catch((err) => console.log(err));  
 
     axios
       .get(baseUrl + "/" + movieId + "/getComments")
@@ -157,7 +195,7 @@ function MovieDetailsPage() {
           <Col lg={5} className="offset-lg-1">
             <Row className="likeDislike">
               <img
-                src={movie.image}
+                src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}` }
                 loading="lazy"
                 alt={movie.title}
                 style={{ maxWidth: "70%" }}
@@ -218,24 +256,24 @@ function MovieDetailsPage() {
           </Col>
           <Col lg={4}>
             <div>
-              <h1>{movie.title}</h1>
+              <h1>{movie.original_title}</h1>
             </div>
             <hr></hr>
             <div>
-              <p>{movie.year}</p>
+              <p>{movie.release_date}</p>
             </div>
             <div>
-              <p>{movie.directors}</p>
+              <p>{crew.director}</p>
             </div>
             <div>
-              <p>{movie.plot}</p>
+              <p>{movie.overview}</p>
             </div>
             <div>
-              <p>{movie.stars}</p>
+              <p>{crew.actors}</p>
             </div>
-            <div>
+            {/* <div>
               <p>{movie.genres}</p>
-            </div>
+            </div> */}
             {movieRating && <p>Average Rating: <Stars rating={movieRating} /> ({movieRating.toFixed(2)})</p>}
             
             {!loading &&
