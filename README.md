@@ -11,17 +11,23 @@ We are three movie enthusiasts and Ironhack students who have collaborated to cr
 ![Project Image](https://res.cloudinary.com/dvdoxs7vr/image/upload/v1686252694/popfilms-logo-1_ssovwp.png "Project Image")
 
 ## Deployment
-You can check the app fully deployed [here](https://popfilms.netlify.app/). 
+You can check the app fully deployed [here](https://popfilms.michseixas.com/). 
+
+```shell
+$ cd popfilms
+$ npm run build
+$ git add . 
+$ git commit
+$ git push origin main 
+```
+
+There is a webhook in github that will deploy automatically every push.
 
 ## Installation guide
 - Fork this repo
 - Clone this repo 
 
-```shell
-$ cd popfilms
-$ npm install
-$ npm start
-```
+
 
 ## Routes
 | Route                | Privacy         | Renders                  |
