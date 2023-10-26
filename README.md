@@ -72,3 +72,6 @@ There is a webhook in github that will deploy automatically every push.
 
 
 # mich-popfilms-client
+
+# Attribution
+This website uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.

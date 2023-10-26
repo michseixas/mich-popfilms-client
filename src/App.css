@@ -71,3 +71,16 @@
   .errorContainer {
     text-align: center;
   }
+
+  footer .container .row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .text-uppercase, .list-unstyled{
+    text-align: center;
+  }
+
+  .custom-text{
+    font-size: 15px;
+  }
